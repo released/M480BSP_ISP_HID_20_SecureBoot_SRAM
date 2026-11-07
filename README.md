@@ -20,6 +20,19 @@
 4. 按 **SW2 至少 30 ms**，或在 **UART0 terminal 按數字 1（KEY1）**，再次連線認證。[按鍵與 terminal 設定](https://released.github.io/slide_Nuvoton_secure_boot_operation_M480/#entry-triggers)。
 5. 只更新含相同 SRAM 模組與入口的新版 APROM；重置後核對新版輸出，並再次測試入口。[SRAM 更新流程與配置限制](https://released.github.io/slide_Nuvoton_secure_boot_operation_M480/#sram-operation)。
 
-**注意事項：** 保留專案的 SRAM／IB／linker 配置與每版 APP 的更新模組。本例操作範圍為 APROM 更新；入口需要 APP 可運行，單槽更新不提供斷電回復保證。
+**注意事項：**
+
+- 保留專案的 SRAM／IB／linker 配置與每版 APP 的更新模組。
+- 本例操作範圍為 APROM 更新。
+- 觸發更新需要 APP 可運行。
+- 單槽更新不提供斷電回復保證。
 
 錯誤狀態與恢復限制見投影片的 [排查表](https://released.github.io/slide_Nuvoton_secure_boot_operation_M480/#troubleshooting)。
+
+## GitHub 維護
+
+- `github_push.bat --check`：檢查本專案的公開內容、遠端與 `main` 分支，不提交或推送。
+- `github_push.bat`：檢查通過後輸入 `PUSH`，提交並推送本專案。
+- 入口使用工作區公用 `push-project.ps1`。
+- 公用腳本位置由 `WEB_PUBLISH_ROOT`，或本機 `github_push.local.psd1` 的 `PublisherRoot` 指定。
+- 本機設定與工程紀錄不加入 Git。
